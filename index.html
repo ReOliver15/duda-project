@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para você, Duda ✨</title>
+<link rel="icon" type="image/png" href="./lua-icone.png">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+    <!-- =========================
+         TELA DE ENTRADA
+    ========================= -->
+
+    <div id="login-screen">
+
+        <div class="stars"></div>
+
+        <div class="login-content">
+
+            <p class="login-eyebrow">
+                um pequeno segredo
+            </p>
+
+            <h1>
+                Oi, Duda.
+            </h1>
+
+            <p class="login-text">
+                Para você entrar
+                <br>
+                preciso que digite a senha secreta.
+            </p>
+            <div class="password-area">
+                <input
+                    type="password"
+                    id="password-input"
+                    placeholder="digite a senha"
+                    autocomplete="off"
+                >
+                <button
+                    id="login-button"
+                    type="button">
+                    entrar ✦
+                </button>
+            </div>
+            <p id="login-error">
+                Hmm... acho que não é essa senha.
+            </p>
+        </div>
+    </div>
+    <!-- =========================
+         CONTEÚDO DA LANDING PAGE
+    ========================= -->
+    <div id="site-content">
+        <!-- =========================
+             HERO
+        ========================= -->
+        <header class="hero">
+            <div class="stars"></div>
+            <div class="hero-content">
+                <p class="eyebrow">
+                    um pequeno cantinho
+                </p>
+                <h1>
+                    Para você, Duda.
+                </h1>
+                <p class="hero-text">
+                    Queria colocar algumas coisas que me lembram você aqui.
+                </p>
+                <a href="#playlist" class="hero-button">
+                    descobrir ↓
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             PLAYLIST
+        ========================= -->
+
+        <section class="playlist-section" id="playlist">
+
+            <h2 class="section-title">
+                Uma mini playlist
+            </h2>
+
+            <div class="carousel">
+
+                <!-- BOTÃO ANTERIOR -->
+
+                <button
+                    class="carousel-button previous"
+                    id="previous-button"
+                    aria-label="Música anterior">
+
+                    ←
+
+                </button>
+
+
+                <!-- CARTÃO DA MÚSICA -->
+
+                <div class="music-card">
+
+                    <div class="album-cover">
+
+                        <img
+                            id="album-cover"
+                            src="cannons-album.jpg"
+                            alt="Capa da música">
+
+                    </div>
+
+
+                    <div class="music-info">
+
+                        <p
+                            id="music-number"
+                            class="music-number">
+
+                            01
+
+                        </p>
+
+
+                        <h3 id="music-title">
+                            Nome da música
+                        </h3>
+
+                        <p
+                            id="music-artist"
+                            class="artist">
+                            Cannons
+                        </p>
+
+                        <p
+                            id="music-message"
+                            class="music-message">
+                            "Essa me lembra você, pois é sua top 1."
+                        </p>
+
+                        <a
+                            id="music-link"
+                            href="#"
+                            class="spotify-button"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            ♫ ouvir música
+                        </a>
+                    </div>
+                </div>
+
+                <!-- BOTÃO PRÓXIMO -->
+
+                <button
+                    class="carousel-button next"
+                    id="next-button"
+                    aria-label="Próxima música">
+                    →
+                </button>
+            </div>
+            <!-- BOLINHAS -->
+            <div
+                class="carousel-dots"
+                id="carousel-dots">
+            </div>
+        </section>
+        <!-- =========================
+             MAYA
+        ========================= -->
+        <section class="cat-section">
+
+            <div class="cat-icon">
+                🐈‍⬛
+            </div>
+            <h2 class="section-title">
+                Maya
+            </h2>
+            <p>
+                Porque não poderia criar uma página pra você e deixar a Maya de fora :3
+            </p>
+        </section>
+        <!-- =========================
+             MENSAGEM FINAL
+        ========================= -->
+        <section class="final-section">
+            <h2>
+                Por enquanto é isso.
+            </h2>
+            <p>
+                Só queria deixar registrado em algum lugar
+                que te conhecer tornou algumas coisas
+                mais bonitas. Te conhecer foi umas das melhores coisas que me aconteceu esse ano.
+            </p>
+        </section>
+        <!-- =========================
+             FOOTER
+        ========================= -->
+        <footer>
+            RB 2026✦
+        </footer>
+
+    </div>
+
+    <!-- =========================
+         JAVASCRIPT                 JAVA SCRIPT                 JAVA SCRIPT
+    ========================= -->
+    <script>
+        /* ==================================
+           SENHA
+        ================================== */
+
+        const passwordInput =
+            document.getElementById("password-input");
+        const loginButton =
+            document.getElementById("login-button");
+        const loginScreen =
+            document.getElementById("login-screen");
+        const siteContent =
+            document.getElementById("site-content");
+        const loginError =
+            document.getElementById("login-error");
+
+        const senhaCorreta = "duda@1999";  /* senha da tela de login */
+
+
+        function entrar() {
+
+            const senhaDigitada =
+                passwordInput.value;
+
+            if (senhaDigitada === senhaCorreta) {
+
+                loginError.style.display = "none";
+
+                loginScreen.classList.add("login-success");
+
+                setTimeout(() => {
+
+                    loginScreen.style.display = "none";
+
+                    siteContent.style.display = "block";
+
+                }, 800);
+
+            } else {
+
+                loginError.style.display = "block";
+
+                passwordInput.value = "";
+
+                passwordInput.focus();
+
+            }
+
+        }
+
+
+        loginButton.addEventListener(
+            "click",
+            entrar
+        );
+
+
+        passwordInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+                    entrar();
+                }
+
+            }
+        );
+
+
+        /* ==================================
+           LISTA DE MÚSICAS
+        ================================== */
+
+        const musicas = [
+
+            {
+                numero: "01",
+                titulo: "Fire for You",
+                artista: "Cannons",
+                capa: "cannons-album.jpg",
+                mensagem: "Essa me lembra você, pois é sua top 1.",
+                link: "https://open.spotify.com/intl-pt/track/4o0LyB69tylqDG6eTGhmig?si=59e5bc0391914200"
+            },
+
+            {
+                numero: "02",
+                titulo: "Carousel",
+                artista: "Cannons",
+                capa: "cannons-2.jpg",
+                mensagem: "Essa tem uma energia muito minha vibe.",
+                link: "https://open.spotify.com/intl-pt/track/3qOSdvMy3dwvwWWpQDAfpa?si=beb26855414b4523"
+            },
+
+            {
+                numero: "03",
+                titulo: "Loving You",
+                artista: "Cannons",
+                capa: "cannons-album.jpg",
+                mensagem: "Essa entrou na lista porque é a nossa música.",
+                link: "https://open.spotify.com/intl-pt/track/5MVJI1eQ7cLoC0fr6NRE69?si=8fec022c2ef6450c"
+            }
+
+        ];
+
+
+        /* ==================================
+           MÚSICA ATUAL
+        ================================== */
+
+        let musicaAtual = 0;
+
+
+        /* ==================================
+           PEGANDO ELEMENTOS DO HTML
+        ================================== */
+
+        const albumCover =
+            document.getElementById("album-cover");
+
+        const musicNumber =
+            document.getElementById("music-number");
+
+        const musicTitle =
+            document.getElementById("music-title");
+
+        const musicArtist =
+            document.getElementById("music-artist");
+
+        const musicMessage =
+            document.getElementById("music-message");
+
+        const musicLink =
+            document.getElementById("music-link");
+
+        const previousButton =
+            document.getElementById("previous-button");
+
+        const nextButton =
+            document.getElementById("next-button");
+
+        const carouselDots =
+            document.getElementById("carousel-dots");
+
+
+        /* ==================================
+           MOSTRAR MÚSICA
+        ================================== */
+
+        function mostrarMusica(index) {
+
+            const musica =
+                musicas[index];
+
+
+            albumCover.src =
+                musica.capa;
+
+
+            albumCover.alt =
+                `Capa de ${musica.titulo}`;
+
+
+            musicNumber.textContent =
+                musica.numero;
+
+
+            musicTitle.textContent =
+                musica.titulo;
+
+
+            musicArtist.textContent =
+                musica.artista;
+
+
+            musicMessage.textContent =
+                `"${musica.mensagem}"`;
+
+
+            musicLink.href =
+                musica.link;
+
+
+            document
+                .querySelectorAll(".dot")
+                .forEach((dot, i) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        i === index
+                    );
+
+                });
+
+        }
+
+
+        /* ==================================
+           CRIAR BOLINHAS
+        ================================== */
+
+        function criarDots() {
+
+            musicas.forEach((_, index) => {
+
+                const dot =
+                    document.createElement("button");
+
+
+                dot.classList.add("dot");
+
+
+                dot.setAttribute(
+                    "aria-label",
+                    `Ir para a música ${index + 1}`
+                );
+
+
+                dot.addEventListener(
+                    "click",
+                    () => {
+
+                        musicaAtual = index;
+
+                        mostrarMusica(
+                            musicaAtual
+                        );
+
+                    }
+                );
+
+
+                carouselDots.appendChild(dot);
+
+            });
+
+        }
+
+
+        /* ==================================
+           PRÓXIMA MÚSICA
+        ================================== */
+
+        function proximaMusica() {
+
+            musicaAtual =
+                (musicaAtual + 1)
+                % musicas.length;
+
+
+            mostrarMusica(
+                musicaAtual
+            );
+
+        }
+
+
+        /* ==================================
+           MÚSICA ANTERIOR
+        ================================== */
+
+        function musicaAnterior() {
+
+            musicaAtual =
+                (musicaAtual - 1 + musicas.length)
+                % musicas.length;
+
+
+            mostrarMusica(
+                musicaAtual
+            );
+
+        }
+
+
+        /* ==================================
+           CLIQUES NOS BOTÕES
+        ================================== */
+
+        nextButton.addEventListener(
+            "click",
+            proximaMusica
+        );
+
+
+        previousButton.addEventListener(
+            "click",
+            musicaAnterior
+        );
+
+
+        /* ==================================
+           INICIAR CARROSSEL
+        ================================== */
+
+        criarDots();
+
+        mostrarMusica(musicaAtual);
+    </script>
+
+</body>
+
+</html>
+

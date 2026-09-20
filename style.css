@@ -1,0 +1,753 @@
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f0b18;
+    color: #f5eefc;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   TELA DE LOGIN
+========================= */
+
+#login-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #332344 0%,
+            #171020 45%,
+            #0f0b18 80%
+        );
+
+    opacity: 1;
+
+    transition: opacity 0.8s ease;
+}
+
+
+/* ESTRELAS DO LOGIN */
+
+#login-screen .stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+#login-screen .stars::before,
+#login-screen .stars::after {
+    content: "✦   ·      ✧       ·   ✦          ·       ✧";
+
+    position: absolute;
+
+    width: 100%;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-size: 20px;
+
+    letter-spacing: 30px;
+}
+
+#login-screen .stars::before {
+    top: 15%;
+    left: 5%;
+}
+
+#login-screen .stars::after {
+    bottom: 20%;
+    right: 5%;
+}
+
+
+/* CONTEÚDO DO LOGIN */
+
+.login-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 520px;
+}
+
+
+/* TEXTO PEQUENO */
+
+.login-eyebrow {
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #bda8ce;
+
+    margin-bottom: 20px;
+}
+
+
+/* TÍTULO */
+
+.login-content h1 {
+    font-size: clamp(42px, 8vw, 70px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+
+/* TEXTO */
+
+.login-text {
+    color: #cfc3d8;
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
+}
+
+
+/* ÁREA DO LOGIN */
+
+.password-area {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* CAMPO DE SENHA */
+
+#password-input {
+    width: 100%;
+    max-width: 300px;
+
+    padding: 13px 20px;
+
+    border: 1px solid #5d4969;
+
+    border-radius: 30px;
+
+    outline: none;
+
+    background: #21172b;
+
+    color: #f5eefc;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+#password-input::placeholder {
+    color: #8f8295;
+}
+
+#password-input:focus {
+    border-color: #b49ac0;
+
+    box-shadow:
+        0 0 20px rgba(180, 154, 192, 0.12);
+}
+
+
+/* BOTÃO DE ENTRADA */
+
+#login-button {
+    padding: 11px 25px;
+
+    border: 1px solid #8d719c;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color: #f5eefc;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#login-button:hover {
+    background: #8d719c;
+
+    color: #120d18;
+}
+
+
+/* ERRO DA SENHA */
+
+#login-error {
+    display: none;
+
+    margin-top: 18px;
+
+    color: #bda8ce;
+
+    font-size: 14px;
+
+    font-style: italic;
+}
+
+
+/* ANIMAÇÃO QUANDO A SENHA ESTÁ CERTA */
+
+#login-screen.login-success {
+    opacity: 0;
+}
+
+
+/* ESCONDE A LANDING PAGE ANTES DO LOGIN */
+
+#site-content {
+    display: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #332344 0%,
+            #171020 45%,
+            #0f0b18 80%
+        );
+}
+
+
+/* ESTRELAS */
+
+.stars {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.stars::before,
+.stars::after {
+    content: "✦   ·      ✧       ·   ✦          ·       ✧";
+
+    position: absolute;
+
+    width: 100%;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-size: 20px;
+
+    letter-spacing: 30px;
+}
+
+.stars::before {
+    top: 15%;
+    left: 5%;
+}
+
+.stars::after {
+    bottom: 20%;
+    right: 5%;
+}
+
+
+/* CONTEÚDO DO HERO */
+
+.hero-content {
+    position: relative;
+
+    z-index: 1;
+
+    max-width: 700px;
+}
+
+
+/* TEXTO PEQUENO */
+
+.eyebrow {
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #bda8ce;
+
+    margin-bottom: 20px;
+}
+
+
+/* TÍTULO */
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 80px);
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+
+/* TEXTO */
+
+.hero-text {
+    max-width: 520px;
+
+    margin: 0 auto 35px;
+
+    color: #cfc3d8;
+
+    font-size: 18px;
+}
+
+
+/* BOTÃO */
+
+.hero-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: #f5eefc;
+
+    border: 1px solid #8d719c;
+
+    padding: 12px 24px;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: #8d719c;
+
+    color: #120d18;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section {
+    padding: 100px 20px;
+}
+
+.section-title {
+    text-align: center;
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+
+    color: #a99bb1;
+
+    margin-bottom: 50px;
+}
+
+
+/* =========================
+   PLAYLIST
+========================= */
+
+.playlist-section {
+    background: #130e1c;
+}
+
+.carousel {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.music-card {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 40% 60%;
+
+    background: #21172b;
+
+    border: 1px solid #3b2b48;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================
+   CAPA DO ÁLBUM
+========================= */
+
+.album-cover {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    align-self: stretch;
+
+    background: #20182e;
+}
+
+.album-cover img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================
+   INFORMAÇÕES DA MÚSICA
+========================= */
+
+.music-info {
+    padding: 45px 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.music-number {
+    color: #8f769d;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.music-info h3 {
+    font-size: 30px;
+
+    font-weight: normal;
+
+    margin-bottom: 5px;
+}
+
+.artist {
+    color: #a99bb1;
+
+    margin-bottom: 25px;
+}
+
+.music-message {
+    color: #d5cadb;
+
+    font-style: italic;
+
+    margin-bottom: 30px;
+}
+
+
+/* BOTÃO SPOTIFY */
+
+.spotify-button {
+    display: inline-block;
+
+    width: fit-content;
+
+    text-decoration: none;
+
+    color: #f5eefc;
+
+    border: 1px solid #765d83;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    transition: 0.3s;
+}
+
+.spotify-button:hover {
+    background: #765d83;
+}
+
+
+/* =========================
+   BOTÕES DO CARROSSEL
+========================= */
+
+.carousel-button {
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #5d4969;
+
+    border-radius: 50%;
+
+    background: #21172b;
+
+    color: #eee4f2;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.carousel-button:hover {
+    background: #765d83;
+}
+
+
+/* =========================
+   BOLINHAS
+========================= */
+
+.carousel-dots {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.dot {
+    width: 7px;
+
+    height: 7px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #51455e;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.dot.active {
+    width: 20px;
+
+    border-radius: 10px;
+
+    background: #b49ac0;
+}
+
+
+/* =========================
+   GATINHO
+========================= */
+
+.cat-section {
+    text-align: center;
+
+    background: #0f0b18;
+}
+
+.cat-icon {
+    font-size: 65px;
+
+    margin-bottom: 20px;
+}
+
+.cat-section p {
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    color: #bdb0c5;
+}
+
+
+/* =========================
+   MENSAGEM FINAL
+========================= */
+
+.final-section {
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #30203d 0%,
+            #130e1c 70%
+        );
+}
+
+.final-section h2 {
+    font-size: 40px;
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+}
+
+.final-section p {
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    color: #cfc3d8;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px 20px;
+
+    background: #0a0710;
+
+    color: #75697c;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 700px) {
+
+    section {
+        padding: 70px 20px;
+    }
+
+    .carousel {
+        gap: 8px;
+    }
+
+    .music-card {
+        grid-template-columns: 1fr;
+    }
+
+    .album-cover {
+        width: 70%;
+
+        margin: 0 auto;
+    }
+
+    .music-info {
+        padding: 30px 25px;
+    }
+
+    .music-info h3 {
+        font-size: 25px;
+    }
+
+    .carousel-button {
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+    .login-content h1 {
+        font-size: 45px;
+    }
+
+    .login-text {
+        font-size: 16px;
+    }
+}
+
